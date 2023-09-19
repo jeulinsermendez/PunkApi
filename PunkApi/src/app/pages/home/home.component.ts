@@ -33,13 +33,7 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.cities = [
-      { name: 'New York', code: 'NY' },
-      { name: 'Rome', code: 'RM' },
-      { name: 'London', code: 'LDN' },
-      { name: 'Istanbul', code: 'IST' },
-      { name: 'Paris', code: 'PRS' }
-  ];
+
     const { beers} =  this.activatedRoute.snapshot.data;
     this.beers  = beers;
     this.totalItems = this.beers.length;

@@ -1,5 +1,8 @@
-<app-top-bar></app-top-bar>
-
-<router-outlet></router-outlet>
-
-<app-footer></app-footer>
+<mat-drawer-container class="example-container" [hasBackdrop]="true">
+  <mat-drawer #drawer [mode]="'side'">I'm a drawer</mat-drawer>
+  <mat-drawer-content>
+    <app-top-bar (menuToogle)="menuToogle()"></app-top-bar>
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+  </mat-drawer-content>
+</mat-drawer-container>
