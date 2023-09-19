@@ -11,6 +11,11 @@ import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  cities: any[] | undefined;
+
+    selectedCity: any | undefined;
+
+
   beers: Beer[] = [];
 
    // Otras propiedades y métodos de tu componente
@@ -28,6 +33,13 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.cities = [
+      { name: 'New York', code: 'NY' },
+      { name: 'Rome', code: 'RM' },
+      { name: 'London', code: 'LDN' },
+      { name: 'Istanbul', code: 'IST' },
+      { name: 'Paris', code: 'PRS' }
+  ];
     const { beers} =  this.activatedRoute.snapshot.data;
     this.beers  = beers;
     this.totalItems = this.beers.length;

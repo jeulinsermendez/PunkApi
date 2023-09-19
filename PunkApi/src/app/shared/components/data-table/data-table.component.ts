@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewChild, AfterViewInit, Input, HostListener, AfterContentInit, TemplateRef } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, Input, HostListener, AfterContentInit, TemplateRef, Inject } from '@angular/core';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Beer } from 'src/app/core/models/Beer';
 import {TooltipPosition} from '@angular/material/tooltip';
+import { AppConfigToken } from 'src/app/app.module';
 
 
 @Component({
@@ -15,15 +16,15 @@ export class DataTableComponent implements OnInit{
   @ViewChild('mobileTemplate', { static: true }) mobileTemplate!: TemplateRef<any>;
   @ViewChild('desktopTemplate', { static: true }) desktopTemplate!: TemplateRef<any>;
 
-  displayedColumns: string[] = ['name', 'tagline','description', 'first_brewed', 'image_url'];
-  displayedColumnsName: string[] = ['Name', 'Tagline', 'Info', 'First Brewed', 'Image'];
+  displayedColumns: string[] = ['name', 'tagline','description', 'first_brewed', 'image_url','ingredients'];
+  displayedColumnsName: string[] = ['Name', 'Tagline', 'Info', 'First Brewed', 'Image','More'];
   TooltipPosition = 'above' as TooltipPosition;
 
 
   isMobileView = window.innerWidth <= 660 && window.innerHeight <= 730;
 
   @HostListener('window:resize', ['$event'])
-  onResize(event: any): void {
+  onResize(): void {
     this.isMobileView = window.innerWidth <= 660 || window.innerHeight <= 730;
   }
 
@@ -39,11 +40,13 @@ export class DataTableComponent implements OnInit{
   tuListaDeElementos: any[] = [];
   displayedItems: Beer[] = [];
 
-  constructor() { }
+  constructor(@Inject(AppConfigToken) public deviceType: boolean[]) { }
 
   ngOnInit() {
-    this.isMobileView = window.innerWidth <= 660 || window.innerHeight <= 730;
+    this.isMobileView = this.deviceType[0];
     console.log(this.beers);
+    console.log('deviceType ',this.deviceType);
+
 
   }
 

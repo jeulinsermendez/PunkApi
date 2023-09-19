@@ -30,29 +30,52 @@
       *ngFor="let item of displayedColumns; let i = index"
       [ngSwitch]="item"
     >
-    <ng-container  *ngSwitchCase="'image_url'">
-      <th mat-header-cell *matHeaderCellDef>{{ displayedColumnsName[i] }}</th>
-      <td mat-cell *matCellDef="let element">
-        <img [src]="element[item]" alt="Image" class="img-responsive" />
-      </td>
-    </ng-container>
-    <ng-container  *ngSwitchCase="'description'">
-      <th mat-header-cell *matHeaderCellDef>{{ displayedColumnsName[i] }}</th>
-      <td mat-cell *matCellDef="let element">
-
-        <mat-icon aria-hidden="false" [fontIcon]="'.../../../../../../assets/icons/boton-de-informacion.png'"
-        [matTooltip]="element[item]"
-        matTooltipPosition="above"
-        matTooltipHideDelay="100"
-        aria-label="Button that displays a tooltip that hides when scrolled out of the container">info_outline
-        </mat-icon>
-      </td>
-    </ng-container>
-      <ng-container  *ngSwitchDefault>
-        <th mat-header-cell *matHeaderCellDef>{{ displayedColumnsName[i] }}</th>
-        <td mat-cell *matCellDef="let element">{{ element[item] }}</td>
+      <ng-container *ngSwitchCase="'image_url'">
+        <th mat-header-cell *matHeaderCellDef>
+          <h2>{{ displayedColumnsName[i] }}</h2>
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <img [src]="element[item]" alt="Image" class="img-responsive" />
+        </td>
+      </ng-container>
+      <ng-container *ngSwitchCase="'description'">
+        <th mat-header-cell *matHeaderCellDef>
+          <h2>{{ displayedColumnsName[i] }}</h2>
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <mat-icon
+            aria-hidden="false"
+            class="icon"
+            [matTooltip]="'Click for tips and curiosities'"
+            matTooltipPosition="above"
+            matTooltipHideDelay="100"
+            >info_outline
+          </mat-icon>
+        </td>
+      </ng-container>
+      <ng-container *ngSwitchCase="'ingredients'">
+        <th mat-header-cell *matHeaderCellDef>
+          <h2>{{ displayedColumnsName[i] }}</h2>
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <mat-icon
+            aria-hidden="false"
+            class="icon"
+            [matTooltip]="'Click for more info'"
+            matTooltipPosition="above"
+            matTooltipHideDelay="100"
+            aria-label="Button that displays a tooltip that hides when scrolled out of the container"
+            >shortcut
+          </mat-icon>
+        </td>
       </ng-container>
 
+      <ng-container *ngSwitchDefault>
+        <th mat-header-cell *matHeaderCellDef>
+          <h2>{{ displayedColumnsName[i] }}</h2>
+        </th>
+        <td mat-cell *matCellDef="let element">{{ element[item] }}</td>
+      </ng-container>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

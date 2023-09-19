@@ -2,6 +2,7 @@ table {
   width: 100%;
 }
 .responsive-table img {
+
   height: 7vh;
   max-width: 100%;
   margin-top: 12px;
@@ -9,6 +10,9 @@ table {
   &.info{
     height: 1rem;
   }
+}
+.icon:hover{
+  cursor: pointer;
 }
 
 @media screen and (max-width: 660px) and (max-height: 730px) {

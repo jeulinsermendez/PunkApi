@@ -14,7 +14,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     HomeRoutingModule,
     HttpClientModule,
     SharedModule,
-    MatPaginatorModule
+    MatPaginatorModule,
   ],
   providers: [
     ApiDataService,
