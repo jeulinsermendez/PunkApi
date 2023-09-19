@@ -1,0 +1,23 @@
+table {
+  width: 100%;
+}
+.responsive-table img {
+  height: 7vh;
+  max-width: 100%;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  &.info{
+    height: 1rem;
+  }
+}
+
+@media screen and (max-width: 660px) and (max-height: 730px) {
+  .responsive-table {
+    width: 100%;
+  }
+
+  .responsive-table img {
+    height: 7vh;
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col" *ngFor="let beer of store.beers$ | async">
+    <app-basic-card></app-basic-card>
+  </div>
+  <app-data-table  [beers]="displayedItems"></app-data-table>
+  <mat-paginator [pageSizeOptions]="itemsPerPageOptions"
+  [length]="totalItems"
+  [pageSize]="pageSize"
+  (page)="onPageChange($event)">
+</mat-paginator>
+
+</div>
