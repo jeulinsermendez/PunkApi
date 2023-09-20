@@ -49,7 +49,7 @@ export class DataTableComponent implements OnInit {
 
   @HostListener('window:resize', ['$event'])
   onResize(): void {
-    this.isMobileView = window.innerWidth <= 660 || window.innerHeight <= 730;
+    this.resize();
   }
 
   @Input() beers!: Beer[];
@@ -71,6 +71,15 @@ export class DataTableComponent implements OnInit {
     public dialog: MatDialog,
     private router: Router
   ) {
+    window.addEventListener('load', () => {
+      console.log('onload')
+      this.resize();
+    });
+    window.addEventListener('popstate', () => {
+      console.log('popstate')
+      this.resize();
+    });
+    this.resize();
     this.translate.onLangChange.subscribe((value: string) => {
       this.setTranslate();
     })
@@ -80,6 +89,10 @@ export class DataTableComponent implements OnInit {
   ngOnInit() {
     this.setTranslate();
     this.isMobileView = this.deviceType[0];
+  }
+  resize(){
+    console.log('resize')
+    this.isMobileView = window.innerWidth <= 660 || window.innerHeight <= 730;
   }
 
   setTranslate(){
