@@ -17,5 +17,12 @@ constructor(private httpClient: HttpClient) { }
   //?page=${page}&per_page=${pageSize}
   return this.httpClient.get<Beer[]>(`${environment.url}beers`);
 }
+ /**
+   * Get beers by ID
+   */
+ getBeersById(id: string): Observable<Beer[]> {
+  //?page=${page}&per_page=${pageSize}
+  return this.httpClient.get<Beer[]>(`${environment.url}beers/${id}`);
+}
 
 }

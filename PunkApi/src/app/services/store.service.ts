@@ -11,7 +11,7 @@ export class StoreService {
   constructor(private apiDataService: ApiDataService) {}
 
   getBeers(page: number = 1, pageSize: number = 4): void {
-    this.apiDataService.getBeers(page,pageSize).subscribe(data => {
+    this.apiDataService.getBeers().subscribe(data => {
       this.beers.next(data);
       console.log(this.beers.getValue());
     });

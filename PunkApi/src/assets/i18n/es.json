@@ -1,0 +1,34 @@
+{
+  "menu": "Menú",
+  "data_table": {
+    "name": "Nombre",
+    "tagline": "Eslogan",
+    "description": "Información",
+    "first_brewed": "Primera elaboración",
+    "image_url": "Imagen",
+    "ingredients": "Más",
+    "click_desc": "Haga clic para la descripción",
+    "click_details": "Haga clic para más detalles",
+    "food_pairing": "Combinación de alimentos",
+    "details": "Detalles"
+  },
+  "details": {
+    "ABV": "Acerca de",
+    "IBU": "Términos de uso",
+    "first_brewed": "Política de privacidad",
+    "tagline": "Eslogan",
+    "description": "Información",
+    "ingredients": "Ingredientes",
+    "malt": "Malta",
+    "hops": "Lúpulo",
+    "brewing_method": "Método de elaboración",
+    "mash_temperature": "Temperatura de maceración",
+    "mash_duration": "Duración de la maceración",
+    "minutes": "minutos"
+  },
+  "footer": {
+    "about": "Acerca de",
+    "terms": "Términos de uso",
+    "privacy": "Política de privacidad"
+  }
+}

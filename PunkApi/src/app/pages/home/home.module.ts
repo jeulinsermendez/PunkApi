@@ -8,6 +8,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { StoreService } from 'src/app/services/store.service';
 import {MatPaginatorModule} from '@angular/material/paginator';
 
+
 @NgModule({
   imports: [
     CommonModule,

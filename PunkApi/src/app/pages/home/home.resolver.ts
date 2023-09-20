@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 import { Observable, of } from 'rxjs';
-import { StoreService } from './services/store.service';
-import { ApiDataService } from './services/api-data.service';
+import { StoreService } from '../../services/store.service';
+import { ApiDataService } from '../../services/api-data.service';
 @Injectable({ providedIn: 'root' })
-export class BeerResolver implements Resolve<any> {
+export class HomeResolver implements Resolve<any> {
   constructor(private store: StoreService, private apiDataService: ApiDataService) {}
 
   resolve( route: ActivatedRouteSnapshot,

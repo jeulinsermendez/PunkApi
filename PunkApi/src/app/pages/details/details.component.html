@@ -1,0 +1,30 @@
+<div class="mobile-beer-details">
+  <mat-icon id="back" aria-hidden="false" (click)="goBack()" class="icon">arrow_back</mat-icon>
+  <div class="beer-details-container">
+    <img [src]="beer.image_url" alt="{{ beer.name }}" class="beer-image" />
+    <h2>{{ beer.name }}</h2>
+    <p><strong>{{'details.ABV' | translate}}:</strong> {{ beer.abv }}</p>
+    <p><strong>{{'details.IBU' | translate}}:</strong> {{ beer.ibu }}</p>
+    <p><strong>{{'details.first_brewed' | translate}}:</strong> {{ beer.first_brewed }}</p>
+    <p><strong>{{'details.tagline' | translate}}:</strong> {{ beer.tagline }}</p>
+    <p><strong>{{'details.description' | translate}}:</strong> {{ beer.description }}</p>
+    <h3>{{'details.ingredients' | translate}}</h3>
+    <p><strong>{{'details.malt' | translate}}:</strong></p>
+    <div *ngFor="let malt of beer.ingredients.malt">
+      <p>
+        {{ malt.name }} ({{ malt.amount.value }} {{ malt.amount.unit }})
+      </p>
+    </div>
+    <p><strong>{{'details.hops' | translate}}:</strong> {{ beer.ingredients.hops[0].name }}</p>
+    <h3>{{'details.brewing_method' | translate}}</h3>
+    <p>
+      <strong>{{'details.mash_temperature' | translate}}:</strong>
+      {{ beer.method.mash_temp[0].temp.value }}
+      {{ beer.method.mash_temp[0].temp.unit }}
+    </p>
+    <p>
+      <strong>{{'details.mash_duration' | translate}}:</strong>
+      {{ beer.method.mash_temp[0].duration }} {{'details.minutes' | translate}}
+    </p>
+  </div>
+</div>

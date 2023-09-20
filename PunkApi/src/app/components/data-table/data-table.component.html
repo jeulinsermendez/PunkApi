@@ -6,20 +6,29 @@
 <ng-template #mobileTemplate>
   <mat-card *ngFor="let item of beers" class="example-card">
     <mat-card-title>{{ item.name }}</mat-card-title>
-    <mat-card-subtitle>Tagline: {{ item.tagline }}</mat-card-subtitle>
-    <img mat-card-image [src]="item.image_url" alt="Photo of {{ item.name }}" />
+    <mat-card-subtitle>{{'data_table.tagline' | translate}}: {{ item.tagline }}</mat-card-subtitle>
+    <img mat-card-image [src]="item.image_url"  class="img-responsive" alt="Photo of {{ item.name }}" />
     <mat-card-content>
-      <p>First Brewed: {{ item.first_brewed }}</p>
-      <p>Description: {{ item.description }}</p>
-      <p>Food Pairing:</p>
-      <ul>
-        <li *ngFor="let food of item.food_pairing">{{ food }}</li>
-      </ul>
+
+      <p>{{'data_table.first_brewed' | translate}}: {{ item.first_brewed }}</p>
+      <p>{{'data_table.description' | translate}}: {{ item.description }}</p>
+      <p>{{'data_table.food_pairing' | translate}}:</p>
+
+        <p *ngFor="let food of item.food_pairing">{{ food }}</p>
+
     </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
+
+      <mat-icon
+            aria-hidden="false"
+            class="icon"
+            (click)="goToDetails(item)"
+            [matTooltip]="clickForInfo"
+            matTooltipPosition="above"
+            matTooltipHideDelay="100"
+            >shortcut
+          </mat-icon>
+          <p>{{'data_table.details' | translate}}</p>
+
   </mat-card>
 </ng-template>
 
@@ -35,7 +44,9 @@
           <h2>{{ displayedColumnsName[i] }}</h2>
         </th>
         <td mat-cell *matCellDef="let element">
-          <img [src]="element[item]" alt="Image" class="img-responsive" />
+
+            <img [src]="element[item]" alt="Image" class="img-responsive" />
+
         </td>
       </ng-container>
       <ng-container *ngSwitchCase="'description'">
@@ -46,7 +57,8 @@
           <mat-icon
             aria-hidden="false"
             class="icon"
-            [matTooltip]="'Click for tips and curiosities'"
+            [matTooltip]="clickForInfo"
+            (click)="selectBeer(element)"
             matTooltipPosition="above"
             matTooltipHideDelay="100"
             >info_outline
@@ -61,10 +73,10 @@
           <mat-icon
             aria-hidden="false"
             class="icon"
-            [matTooltip]="'Click for more info'"
+            (click)="goToDetails(element)"
+            [matTooltip]="clickForInfo"
             matTooltipPosition="above"
             matTooltipHideDelay="100"
-            aria-label="Button that displays a tooltip that hides when scrolled out of the container"
             >shortcut
           </mat-icon>
         </td>
@@ -81,4 +93,17 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
+</ng-template>
+
+
+<ng-template #customDialogTemplate>
+  <h1 mat-dialog-title>{{selectedBeer.name}}</h1>
+  <mat-dialog-content>
+    <div class="dialog-content">
+      <img [src]="selectedBeer.image_url" alt="Beer Image" class="beer-image">
+      <p class="beer-description">{{ selectedBeer.description }}</p>
+    </div>
+  </mat-dialog-content>
+
+
 </ng-template>

@@ -5,6 +5,8 @@ import { StoreService } from 'src/app/services/store.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { Beer } from 'src/app/core/models/Beer';
 import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -30,6 +32,7 @@ export class HomeComponent implements OnInit {
     public store: StoreService,
     private activatedRoute: ActivatedRoute,
     private apiDataService: ApiDataService,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit() {
@@ -56,7 +59,7 @@ export class HomeComponent implements OnInit {
   }
 
   getBeers(page: number, pageSize: number){
-    this.apiDataService.getBeers(page, pageSize).subscribe(data => {
+    this.apiDataService.getBeers().subscribe(data => {
       this.beers = data;
     })
   }

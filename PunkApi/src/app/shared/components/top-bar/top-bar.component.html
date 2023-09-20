@@ -1,4 +1,10 @@
 <mat-toolbar color="warn">
-  <mat-icon id="menu" aria-hidden="false" aria-label="Example home icon" (click)="toggle()">home</mat-icon>
   <span>PunkApi</span>
+  <span class="example-spacer"></span>
+  <mat-icon id="menu" aria-hidden="false"[matMenuTriggerFor]="menu"  #menuTrigger aria-hidden="false"
+  class="icon">language</mat-icon>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="changeLanguage('es')">Es</button>
+  <button mat-menu-item (click)="changeLanguage('en')">En</button>
+</mat-menu>
 </mat-toolbar>

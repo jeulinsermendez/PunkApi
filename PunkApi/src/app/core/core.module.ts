@@ -9,6 +9,7 @@ import { LayoutModule } from '../layout/layout.module';
   imports: [
     CommonModule,
      LayoutModule,
+
     // NgxSpinnerModule
 
   ],
@@ -24,10 +25,12 @@ import { LayoutModule } from '../layout/layout.module';
     //   multi: true
     // },
     // { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
+
   ],
   exports: [
     // LoaderSpinnerComponent
      LayoutModule,
+
     // NgxSpinnerModule,
   ]
 })

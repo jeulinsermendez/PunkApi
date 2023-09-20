@@ -1,0 +1,34 @@
+{
+  "menu": "Menu",
+  "data_table": {
+    "name": "Name",
+    "tagline": "Tagline",
+    "description": "Info",
+    "first_brewed": "First Brewed",
+    "image_url": "Image",
+    "ingredients": "More",
+    "click_desc": "Click for description",
+    "click_details": "Click for more details",
+    "food_pairing": "Food pairing",
+    "details": "Details"
+  },
+  "details": {
+    "ABV": "About",
+    "IBU": "Terms of Use",
+    "first_brewed": "Privacy Policy",
+    "tagline": "Tagline",
+    "description": "Info",
+    "ingredients": "Ingredients",
+    "malt": "Malt",
+    "hops": "Hops",
+    "brewing_method": "Brewing Method",
+    "mash_temperature": "Mash Temperature",
+    "mash_duration": "Mash Duration",
+    "minutes": "minutes"
+  },
+  "footer": {
+    "about": "About",
+    "terms": "Terms of Use",
+    "privacy": "Privacy Policy"
+  }
+}

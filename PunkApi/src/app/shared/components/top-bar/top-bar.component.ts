@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-top-bar',
@@ -9,12 +10,13 @@ export class TopBarComponent implements OnInit {
 
   @Output()menuToogle = new EventEmitter<void>();
 
-  constructor() { }
+  constructor(private translate: TranslateService) { }
 
   ngOnInit() {
   }
-  toggle(){
-    this.menuToogle.emit();
+  changeLanguage(lang: string){
+    this.translate.use(lang);
+    console.log(this.translate,lang);
   }
 
 }
