@@ -13,8 +13,8 @@ import { MatIconModule } from '@angular/material/icon';
     DetailsRoutingModule,
     CoreModule,
     TranslateModule,
-    MatCardModule, // Agrega el módulo de tarjetas de Angular Material
-    MatIconModule, // Agrega el módulo de iconos de Angular Material
+    MatCardModule,
+    MatIconModule,
   ],
   declarations: [DetailsComponent],
   providers:[ApiDataService]

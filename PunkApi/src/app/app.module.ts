@@ -13,7 +13,7 @@ import {
 } from '@angular/common/http';
 import { SpinnerComponent } from './core/components/spinner/spinner.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { SpinnerInterceptor } from './core/components/spinner/spinner.interceptor';
+import { SpinnerInterceptor } from './core/interceptors/spinner.interceptor';
 import { InjectionToken } from '@angular/core';
 import {
   TranslateModule,

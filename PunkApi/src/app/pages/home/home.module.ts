@@ -5,7 +5,6 @@ import { HomeRoutingModule } from './home-routing.module';
 import { ApiDataService } from 'src/app/services/api-data.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { StoreService } from 'src/app/services/store.service';
 import {MatPaginatorModule} from '@angular/material/paginator';
 
 
@@ -19,7 +18,6 @@ import {MatPaginatorModule} from '@angular/material/paginator';
   ],
   providers: [
     ApiDataService,
-    StoreService
   ],
   declarations: [HomeComponent,]
 })
